@@ -1,2 +1,6 @@
-# Stock_dashboard
-A dashboard for displaying financial information provided by Yahoo Finance
+INSTRUCTIONS TO RUN THE APPLICATION
+
+APPLICATION REQUIRES INTERNET CONNECTION. TERMINAL IS RAN LOCALLY BUT FETCHES FROM YAHOO FINANCE API
+
+Enter "streamlit run msf.py" in WSL2
+In browser: http://localhost:8501
