@@ -18,10 +18,18 @@ st.subheader("Price History (1 month)")
 history_chart = ch.history_chart(ticker_data)
 st.altair_chart(history_chart, use_container_width=True)
 
+tab1, tab2, tab3 = st.tabs(["Net Income", "ROIC", "Cash Conversion Ratio"])
 
-st.subheader("Net Income Quarterly")
-quarterly_chart = ch.quarterly_chart(ticker_data)
-st.altair_chart(quarterly_chart, use_container_width=True)
+with tab1:
+    st.subheader("Net Income Quarterly")
+    net_income_chart = ch.net_income_chart(ticker_data)
+    st.altair_chart(net_income_chart, use_container_width=True)
+
+with tab2:
+    st.subheader("Return on Invested Capital")
+
+with tab3:
+    st.subheader("Cash Conversion Ratio")
 
 st.subheader("Analyst Price Target")
-#st.write("Low:", ticker.analyst_price_targets["low"])
+#st.write("Low:", ticker_data.analyst_price_targets["low"])

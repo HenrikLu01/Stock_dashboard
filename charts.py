@@ -21,19 +21,19 @@ def history_chart(ticker_data):
     ).properties(height=300)
     return price_chart
 
-def quarterly_chart(ticker_data):
+def net_income_chart(ticker_data):
     net_income_dict = {}
     data = ticker_data["netIncome"]
     for date,data in data.items():
         quarter = f"{date.year}-Q{date.quarter}"
 
-        net_income_dict[quarter] = data["NetIncomeCommonStockholders"]
-    fcf_df = pd.DataFrame(
+        net_income_dict[quarter] = data["NetIncomeCommonStockholders"]/1000000
+    net_income_df = pd.DataFrame(
         list(net_income_dict.items()),
-        columns=["quarter", "value"]
+        columns=["Quarter", "Value in millions"]
     )
-    fcf_chart = alt.Chart(fcf_df).mark_bar(size=30).encode(
-        x="quarter:N",
-        y="value:Q"
+    net_income_chart = alt.Chart(net_income_df).mark_bar(size=30).encode(
+        x="Quarter:N",
+        y="Value in millions:Q"
     )
-    return fcf_chart
+    return net_income_chart
